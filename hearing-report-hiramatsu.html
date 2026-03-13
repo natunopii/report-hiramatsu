@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ユーザーヒアリング評価レポート — 平松様 | THE PERSON</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E2792E;
+      --gold: #FFB11B;
+      --black: #1C1C1C;
+      --offwhite: #FFFFFB;
+      --lightgray: #EEEDEB;
+      --gray: #B4B5B4;
+      --skyblue: #51A8DD;
+      --green: #227D51;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      color: var(--black);
+      background: var(--lightgray);
+    }
+
+    /* ===== LAYOUT ===== */
+    .page {
+      max-width: 900px;
+      margin: 48px auto;
+      background: var(--offwhite);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--black);
+      padding: 40px 48px 32px;
+    }
+    .header-brand {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .header-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--offwhite);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .header-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .header-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .header-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+    .header-meta-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--offwhite);
+    }
+
+    /* ===== SCORE BANNER ===== */
+    .score-banner {
+      background: var(--orange);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .score-main {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .score-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .score-denom {
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+    }
+    .score-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+    }
+    .score-verdict {
+      background: var(--black);
+      color: var(--offwhite);
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+      padding: 48px;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--orange);
+    }
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--orange);
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    /* ===== SUMMARY BOX ===== */
+    .summary-box {
+      background: var(--lightgray);
+      padding: 24px;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 4px 4px 0;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--black);
+    }
+
+    /* ===== PROFILE TABLE ===== */
+    .profile-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .profile-table tr {
+      border-bottom: 1px solid var(--lightgray);
+    }
+    .profile-table tr:last-child {
+      border-bottom: none;
+    }
+    .profile-table th {
+      width: 180px;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--black);
+      background: var(--lightgray);
+      vertical-align: top;
+    }
+    .profile-table td {
+      padding: 12px 16px;
+      color: var(--black);
+      line-height: 1.7;
+    }
+
+    /* ===== JOURNEY ===== */
+    .journey-text {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--black);
+      padding: 16px 0;
+    }
+
+    /* ===== SCORE GRID ===== */
+    .score-intro {
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .score-grid {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .score-row {
+      display: grid;
+      grid-template-columns: 1fr 140px 100px;
+      align-items: center;
+      gap: 16px;
+      background: var(--lightgray);
+      padding: 12px 16px;
+      border-radius: 4px;
+    }
+    .score-row-label {
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .score-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .score-bar-bg {
+      flex: 1;
+      height: 6px;
+      background: var(--gray);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      background: var(--orange);
+      border-radius: 3px;
+    }
+    .score-bar-fill.full {
+      background: var(--black);
+    }
+    .score-pts {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--black);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .score-verdict-tag {
+      font-size: 11px;
+      color: var(--gray);
+      text-align: right;
+    }
+
+    /* ===== AXIS DETAILS ===== */
+    .axis-cards {
+      display: grid;
+      gap: 16px;
+    }
+    .axis-card {
+      border: 1px solid var(--lightgray);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .axis-card-head {
+      background: var(--lightgray);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .axis-card-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .axis-card-score {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .axis-card-body {
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* ===== RISK TABLE ===== */
+    .risk-intro {
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .risk-table thead {
+      background: var(--black);
+      color: var(--offwhite);
+    }
+    .risk-table thead th {
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    .risk-table tbody tr {
+      border-bottom: 1px solid var(--lightgray);
+    }
+    .risk-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .risk-table tbody td {
+      padding: 12px 16px;
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .risk-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .risk-badge.low { background: var(--lightgray); color: var(--black); }
+    .risk-badge.low-mid { background: var(--gold); color: var(--black); }
+    .quote {
+      font-style: italic;
+      color: #666;
+    }
+
+    /* ===== ACTION ===== */
+    .action-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .action-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-items: start;
+      gap: 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .action-dept {
+      padding: 12px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--offwhite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .action-dept.trainer { background: var(--orange); color: #fff; }
+    .action-dept.dev     { background: var(--skyblue); color: #fff; }
+    .action-dept.qa      { background: var(--green); color: #fff; }
+    .action-dept.exec    { background: var(--black); color: var(--offwhite); }
+    .action-dept.mktg    { background: var(--gold); color: var(--black); }
+    .action-dept.cs      { background: #7a6a5a; color: #fff; }
+    .action-dept.edu     { background: var(--lightgray); color: var(--black); }
+    .action-content {
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.7;
+      background: #f5f5f3;
+    }
+    .action-content ul {
+      padding-left: 16px;
+    }
+    .action-content li {
+      margin-bottom: 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-brand {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      color: var(--orange);
+    }
+    .footer-note {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">THE PERSON — Internal Report</div>
+    <div class="header-title">ユーザーヒアリング評価レポート</div>
+    <div class="header-meta">
+      <div class="header-meta-item">
+        <span class="header-meta-label">顧客名</span>
+        <span class="header-meta-value">平松 様</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">実施日</span>
+        <span class="header-meta-value">2026年3月9日</span>
+      </div>
+      <div class="header-meta-item">
+        <span class="header-meta-label">作成日</span>
+        <span class="header-meta-value">2026年3月13日</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCORE BANNER -->
+  <div class="score-banner">
+    <div>
+      <div class="score-label">総合スコア</div>
+      <div class="score-main">
+        <span class="score-number">19</span>
+        <span class="score-denom">/ 25点</span>
+      </div>
+    </div>
+    <div class="score-verdict">安定顧客｜現状維持 OK・目標再設定の声がけ推奨</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- ① エグゼクティブサマリー -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">エグゼクティブサマリー</span>
+      </div>
+      <div class="summary-box">
+        平松様は約1年の継続利用を経て、現在も非常に安定した利用状態にある。チケット月4枚を使い切るリズムが定着しており、目標も「体重維持→筋肉増強→部位別強化」と自発的に進化し続けている。即時チャーンリスクは低く、現状維持で問題ない段階。唯一の構造的課題は予約の取りこぼしであり、システム側の対応が望まれる。
+      </div>
+    </section>
+
+    <!-- ② 顧客プロファイル -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">顧客プロファイル・利用状況</span>
+      </div>
+      <table class="profile-table">
+        <tr><th>利用期間</th><td>約1年（2024年12月〜）</td></tr>
+        <tr><th>利用頻度</th><td>週1回グループパーソナル ＋ 平日1〜2回アトリエ自主トレ</td></tr>
+        <tr><th>チケット消化</th><td>月4枚・使い切り意識あり</td></tr>
+        <tr><th>入会前歴</th><td>ライザップ4ヶ月（8kg減量達成）</td></tr>
+        <tr><th>入会動機</th><td>減量後の体重維持＋筋肉増強。コスパの良さが決め手</td></tr>
+        <tr><th>現在の目標</th><td>大胸筋・背筋の強化 → 肩・腕にも興味拡大中</td></tr>
+        <tr><th>自己評価</th><td>10点中 <strong>8点</strong></td></tr>
+      </table>
+
+      <div class="journey-text">
+        <strong>利用ジャーニー</strong><br>
+        健康診断をきっかけにライザップへ入会し、4ヶ月で8kgの減量を達成。「食事管理で体重は落とせると分かった」とライザップを退会後、自宅近くのアトリエを検討するなかでTHE PERSONのグループパーソナルを発見。コスパの良さを評価して入会した。現在は週1セッション＋平日自主トレのリズムが定着しており、「姿勢が良くなった」「周囲から体型を褒められる」といった成果も実感している。
+      </div>
+    </section>
+
+    <!-- ③ 総合評価スコア -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">総合評価スコア</span>
+      </div>
+      <p class="score-intro">
+        5軸の評価をまとめると、習慣化と目標の進化が特に高く、サービスが生活に深く根づいていることがわかる。一方、推奨意向と人的信頼はいずれも中程度で、「好きだが積極的に広める・特定トレーナーに強く依存する」段階には至っていない。組織全体としての安定品質への満足度は高い。
+      </p>
+
+      <div class="score-grid">
+        <div class="score-row">
+          <span class="score-row-label">サービス喪失感</span>
+          <div class="score-bar-wrap">
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="score-pts">4 / 5</div>
+            <div class="score-verdict-tag">かなり残念</div>
+          </div>
+        </div>
+        <div class="score-row">
+          <span class="score-row-label">推奨意向</span>
+          <div class="score-bar-wrap">
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div>
+            <div class="score-pts">3 / 5</div>
+            <div class="score-verdict-tag">聞かれたら薦める</div>
+          </div>
+        </div>
+        <div class="score-row">
+          <span class="score-row-label">習慣化・エンゲージメント</span>
+          <div class="score-bar-wrap">
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="score-pts">4 / 5</div>
+            <div class="score-verdict-tag">能動的スケジュール管理</div>
+          </div>
+        </div>
+        <div class="score-row">
+          <span class="score-row-label">目標の進化</span>
+          <div class="score-bar-wrap">
+            <div class="score-bar-bg"><div class="score-bar-fill full" style="width:100%"></div></div>
+          </div>
+          <div>
+            <div class="score-pts">5 / 5</div>
+            <div class="score-verdict-tag">自発的な目標設定</div>
+          </div>
+        </div>
+        <div class="score-row">
+          <span class="score-row-label">人的関係・信頼</span>
+          <div class="score-bar-wrap">
+            <div class="score-bar-bg"><div class="score-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div>
+            <div class="score-pts">3 / 5</div>
+            <div class="score-verdict-tag">組織品質への満足</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 各軸の詳細 -->
+      <div class="axis-cards">
+        <div class="axis-card">
+          <div class="axis-card-head">
+            <span class="axis-card-title">サービス喪失感</span>
+            <span class="axis-card-score">4 / 5</span>
+          </div>
+          <div class="axis-card-body">
+            「全身のトレーニングを一定レベルで継続できているのはここに加入しているから」という発言に代表されるように、サービスへの依存度は高い。ただし「アトリエ単体でもできなくはない」というニュアンスも含むため4点。
+          </div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-card-head">
+            <span class="axis-card-title">推奨意向</span>
+            <span class="axis-card-score">3 / 5</span>
+          </div>
+          <div class="axis-card-body">
+            サービスへの好意的評価（10点中8点）はあるが、友人への積極的な紹介実績や「ぜひ薦めたい」という発言はなし。現状は聞かれたら薦めるレベル。
+          </div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-card-head">
+            <span class="axis-card-title">習慣化・エンゲージメント</span>
+            <span class="axis-card-score">4 / 5</span>
+          </div>
+          <div class="axis-card-body">
+            週末どちらかに入れるリズムが確立されており、生活の一部として定着している。一方で「月末近くに気づいたら埋まっている」という予約の取りこぼしが課題で、完全なルーティン化にはあと一歩。
+          </div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-card-head">
+            <span class="axis-card-title">目標の進化</span>
+            <span class="axis-card-score">5 / 5</span>
+          </div>
+          <div class="axis-card-body">
+            減量（ライザップ）→ 維持・増強（THE PERSON）→ 部位別強化と目標が明確に進化しており、継続動機が自発的に更新され続けている。出口感は皆無。
+          </div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-card-head">
+            <span class="axis-card-title">人的関係・信頼</span>
+            <span class="axis-card-score">3 / 5</span>
+          </div>
+          <div class="axis-card-body">
+            「どなたが担当されてもサービスレベルがバラつかない」と組織全体への信頼は高い。ただし特定トレーナーとの個人的な深い関係には至っておらず、名前も覚えていないことから中程度の評価。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ チャーンリスクシグナル -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <span class="section-title">チャーンリスクシグナル</span>
+      </div>
+      <p class="risk-intro">現時点で即時チャーンにつながるリスクは低い。以下はいずれも改善要望レベル。</p>
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>シグナル</th>
+            <th>深刻度</th>
+            <th>根拠発言</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>予約の取りこぼし</td>
+            <td><span class="risk-badge low-mid">低〜中</span></td>
+            <td><span class="quote">「気がついた時には行きたい時間帯が埋まってる」</span></td>
+          </tr>
+          <tr>
+            <td>数値フィードバック不足</td>
+            <td><span class="risk-badge low">低</span></td>
+            <td><span class="quote">「体組成を毎回測って比較できるとすごくいい」</span></td>
+          </tr>
+          <tr>
+            <td>4名参加時の快適度低下</td>
+            <td><span class="risk-badge low">低</span></td>
+            <td><span class="quote">「4人の日はちょっと人が近すぎる、声がけの頻度も減る」</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ⑤ 部署別アクション -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <span class="section-title">部署別アクション</span>
+      </div>
+      <div class="action-grid">
+
+        <div class="action-item">
+          <div class="action-dept trainer">トレーナー</div>
+          <div class="action-content">
+            <ul>
+              <li>肩・腕のトレーニングへの関心が高まっている。次回セッションでメニュー拡張の提案を行う。</li>
+              <li>「もっとこうしましょう」という積極的な声がけを求めている。カルテに記載し担当者間で共有する。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept dev">開発</div>
+          <div class="action-content">
+            <ul>
+              <li><strong>【最優先】</strong>予約リマインド通知（プッシュ通知）の実装。本人が「プッシュ通知が来るといい」と明言している。</li>
+              <li>マイページへの体組成記録・トレーナー表示機能の追加を中長期で検討。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept qa">品質管理</div>
+          <div class="action-content">
+            <ul>
+              <li>4名参加時のトレーナー声がけ頻度低下が指摘されている。定員設定またはトレーナー配置の見直しを検討。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept exec">経営</div>
+          <div class="action-content">
+            <ul>
+              <li>体組成測定機器の導入を中優先課題として費用対効果を検討。ライザップとの唯一の明確な差別化ポイントになりうる。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept mktg">マーケティング</div>
+          <div class="action-content">
+            <ul>
+              <li>推奨意向は現状「受動的推薦」。紹介インセンティブ等で能動的推薦につなげる余地がある。</li>
+              <li>「ライザップ卒業後の維持・増強フェーズ」という入会ジャーニーは広告メッセージとして活用できる可能性がある。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept" style="background:var(--gray);color:#fff;">採用</div>
+          <div class="action-content">今月のアクションなし</div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept cs">CS</div>
+          <div class="action-content">
+            <ul>
+              <li>現状チャーンリスクは低いため、定期的な満足度確認（四半期ごとのチェックイン連絡など）で関係性を維持。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="action-item">
+          <div class="action-dept edu">教育</div>
+          <div class="action-content">
+            <ul>
+              <li>トレーナーの個人名を覚えてもらえていない点は、ウェルカム面談や担当者紹介フローで改善できる可能性がある。</li>
+              <li>「どなたが担当されてもサービスレベルがバラつかない」という高評価は教育の成果。標準化の維持を継続。</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-brand">THE PERSON</span>
+    <span class="footer-note">Internal Use Only — ひとりの人を、健康で、より良くする。</span>
+  </footer>
+
+</div>
+</body>
+</html>
